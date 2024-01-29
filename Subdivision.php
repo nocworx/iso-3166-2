@@ -7,7 +7,7 @@ class Subdivision
     /**
      * @return string
      */
-    protected static function getSubdivisionFolderPath()
+    protected static function getSubdivisionFolderPath() : string
     {
         return __DIR__ . '/subdivisions';
     }
@@ -17,7 +17,7 @@ class Subdivision
      *
      * @return string
      */
-    protected static function getSubdivisionFilePath($countryCode)
+    protected static function getSubdivisionFilePath(string $countryCode) : string
     {
         return self::getSubdivisionFolderPath() . '/' . $countryCode . '.json';
     }
@@ -28,7 +28,7 @@ class Subdivision
      *
      * @return string
      */
-    protected static function getSubdivisionLocaleFilePath($countryCode, $locale)
+    protected static function getSubdivisionLocaleFilePath(string $countryCode, string $locale) : string
     {
         return self::getSubdivisionFolderPath() . '/' . $countryCode . '/' . $locale . '.json';
     }
@@ -39,11 +39,11 @@ class Subdivision
      *
      * @return array
      */ 
-    protected static function loadJsonFile($path, $assoc = false) 
+    protected static function loadJsonFile(string $path, bool $assoc = false) : array
     {
         $data = array();
         
-        if (!$assoc) {
+        if (! $assoc) {
             $data = new \stdClass();
         }
         
@@ -57,11 +57,11 @@ class Subdivision
     
     /**
      * @param string $countryCode
-     * @param string $locale
+     * @param ?string $locale
      *
      * @return array
      */
-    protected static function loadSubdivisionFile($countryCode, $locale = null)
+    protected static function loadSubdivisionFile(string $countryCode, ?string $locale = null) : array
     {
         $data = self::loadJsonFile(self::getSubdivisionFilePath($countryCode));
         
@@ -81,7 +81,7 @@ class Subdivision
      *
      * @return array
      */
-    public static function getSubdivisions($countryCode, $locale = null)
+    public static function getSubdivisions(string $countryCode, string $locale = null) : array
     {
         return self::loadSubdivisionFile(
             strtolower($countryCode), 
