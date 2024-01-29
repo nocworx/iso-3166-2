@@ -85,7 +85,7 @@ class Subdivision
     {
         return self::loadSubdivisionFile(
             strtolower($countryCode), 
-            strtolower($locale)
+            $locale ? strtolower($locale) : null
         );
     }
 }
