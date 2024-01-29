@@ -1,5 +1,5 @@
 {
-    "name": "l91/iso-3166-2",
+    "name": "nocworx/iso-3166-2",
     "description": "PHP Lib for ISO 3166-2",
     "require": {
         "php": ">=5.3"
