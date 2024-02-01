@@ -2,6 +2,8 @@
 
 namespace L91\ISO_3166_2;
 
+use stdClass;
+
 class Subdivision
 {
     /**
@@ -37,9 +39,9 @@ class Subdivision
      * @param string $path
      * @param bool $assoc
      *
-     * @return mixed
+     * @return array|stdClass
      */ 
-    protected static function loadJsonFile(string $path, bool $assoc = false) : mixed
+    protected static function loadJsonFile(string $path, bool $assoc = false) : array|stdClass
     {
         $data = array();
         
@@ -59,9 +61,9 @@ class Subdivision
      * @param string $countryCode
      * @param ?string $locale
      *
-     * @return mixed
+     * @return array|stdClass
      */
-    protected static function loadSubdivisionFile(string $countryCode, ?string $locale = null) : mixed
+    protected static function loadSubdivisionFile(string $countryCode, ?string $locale = null) : array|stdClass
     {
         $data = self::loadJsonFile(self::getSubdivisionFilePath($countryCode));
         
@@ -79,9 +81,9 @@ class Subdivision
      * @param string $countryCode
      * @param string $locale
      *
-     * @return mixed
+     * @return array|stdClass
      */
-    public static function getSubdivisions(string $countryCode, string $locale = null) : mixed
+    public static function getSubdivisions(string $countryCode, string $locale = null) : array|stdClass
     {
         return self::loadSubdivisionFile(
             strtolower($countryCode), 
