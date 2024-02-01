@@ -37,9 +37,9 @@ class Subdivision
      * @param string $path
      * @param bool $assoc
      *
-     * @return array
+     * @return mixed
      */ 
-    protected static function loadJsonFile(string $path, bool $assoc = false) : array
+    protected static function loadJsonFile(string $path, bool $assoc = false) : mixed
     {
         $data = array();
         
@@ -59,9 +59,9 @@ class Subdivision
      * @param string $countryCode
      * @param ?string $locale
      *
-     * @return array
+     * @return mixed
      */
-    protected static function loadSubdivisionFile(string $countryCode, ?string $locale = null) : array
+    protected static function loadSubdivisionFile(string $countryCode, ?string $locale = null) : mixed
     {
         $data = self::loadJsonFile(self::getSubdivisionFilePath($countryCode));
         
@@ -79,9 +79,9 @@ class Subdivision
      * @param string $countryCode
      * @param string $locale
      *
-     * @return array
+     * @return mixed
      */
-    public static function getSubdivisions(string $countryCode, string $locale = null) : array
+    public static function getSubdivisions(string $countryCode, string $locale = null) : mixed
     {
         return self::loadSubdivisionFile(
             strtolower($countryCode), 
